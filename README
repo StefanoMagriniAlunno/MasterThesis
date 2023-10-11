@@ -1,0 +1,116 @@
+Software for Master's Thesis in Applied Mathematics for Data Science
+Author Attribution Model
+Author: Stefano Magrini Alunno
+
+================================================================
+INTRODUCTION:
+================================================================
+	This software analyzes photos of paintings and compares them with each other to attribute artworks to their respective authors. It employs multilingual and multithreading methods to make it portable, user-friendly, and easy to maintain. In particular, the attribution process utilizes a quantitative method that analyzes small pixel portions. As a result, each artwork will have a list of the associated pixel portions.
+
+
+================================================================
+INSTALLATION:
+================================================================
+	Environment: Unix-like (including POSIX with necessary code modifications)
+
+	On a Linux environment, you can use the startup script start.sh to validate the folder's integrity and launch the software. In case it cannot be done automatically, you can perform these steps manually as follows:
+
+	Integrity:
+		1. In the 'Set' folder, there should be two subfolders, 'Test' and 'Training' (other folders are acceptable).
+		2. In the 'Set/Test' folder, there should only be files with the .ppm extension, and their names must not contain periods or spaces.
+		3. In the 'Set/Training' folder, there should only be subfolders (no files).
+		4. Each subfolder in 'Set/Training' should only contain files with the .ppm extension, and their names must not contain periods or spaces.
+		5. In the 'Source' folder, there should be two subfolders, 'C' and 'Py'.
+		6. In the 'Source/C' folder, there should be the 'synthesis' and 'comparison' subfolders.
+		7. Each subfolder in 'Source/C' should contain the makefile.
+		8. In the 'Source/Py' folder, there should be a file named 'software.py'.
+
+	Prerequisites:
+		* GCC compiler that supports the C11 standard (e.g., gcc 11.4.0).
+		* Python 3 (e.g., 3.9.13).
+		* Unix-like operating system (e.g., Linux Ubuntu 22.4.0) for using the provided scripts.
+
+	For the software to function correctly, it's essential that the .ppm files do not contain comments inside. The header should follow the format:
+	P6
+	{width} {height}
+	255
+
+
+================================================================
+USAGE:
+================================================================
+	In Unix-like operating system (e.g. Linux Ubuntu 22.4.0) for using the provided scripts.
+	Otherwise, start the Python script /Source/Py/software.py in the main directory of the application.
+	The software is divided into seven parts:
+		0. Synthesis of the training set
+		1. Analysis of the training set
+		2. Synthesis of the test set
+		3. Analysis of the test set
+		4. Comparison of the synthesis
+		5. Analysis of the comparisons
+		6. Attribution
+	The user can choose the starting point from which to start the program.
+	If an error is encountered, the program is stopped ant report the details of the error.
+
+
+================================================================
+CONFIGURATION:
+================================================================
+	The configuration of the application is determined by the a 4 parameters:
+		1. Progress:
+			0 is not possible see the details of the analysis
+			1 is not possible see the details of the analysis
+		2. MODEL:
+			0 using the BW_model
+			1 using the MULTILAYER_model
+			2 using the OPINION_model
+		3. ARGS:
+			if MODEL is 0:
+				BW_GRAM_SIZE: size of the grams
+			if MODEL is 1:
+				N_LAYERS: number of layers
+				BW_GRAM_SIZE: size of the grams
+			if MODEL is 2:
+				INTERACTION_AREA: size of the interaction area
+				CONFIDENCE: confidence of the opinions
+				GRAM_SIZE: size of the gram
+	In file Source/C/config.h is possible to see all configuration parameters.
+
+
+================================================================
+AUTHOR ATTRIBUTION:
+================================================================
+
+
+================================================================
+CONTRIBUTORS:
+================================================================
+Synthesis algorithm: Prof. Dario Benedetto
+DataSet used to fix bug in software:
+	https://www.kaggle.com/code/paultimothymooney/collections-of-paintings-from-50-artists
+
+================================================================
+LICENSE: Copyright (c) 2010
+================================================================
+
+
+================================================================
+RESOURCES:
+================================================================
+
+
+================================================================
+FAQ:
+================================================================
+
+
+================================================================
+CONTACTS and SUPPORT:
+================================================================
+Author: <magrinialunno.1851728@studenti.uniroma1.it>
+
+
+================================================================
+UPDATES:
+================================================================
+
